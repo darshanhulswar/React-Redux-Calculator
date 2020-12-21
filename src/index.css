@@ -1,13 +1,55 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+#root {
+  height: 100vh;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.Calculator {
+  max-width: 400px;
+  padding: 2rem;
+  margin: 0 auto;
+  background: rgb(245, 245, 245);
+  box-shadow: 0 0 20px rgb(122, 122, 122);
+  border-radius: 1rem;
+}
+
+h2 {
+  margin: 0.3rem;
+  text-align: center;
+  font-family: sans-serif;
+  color: darkgray;
+}
+.Calculator > input {
+  width: 100%;
+  margin: 1rem 0;
+  border: none;
+  outline: none;
+  padding: 0.2rem;
+}
+
+.Numeric__input,
+.Math__input {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 0.6rem 0;
+}
+
+.special_class {
+  background: rgb(220, 245, 242);
+  border: none;
+  border-radius: 10px;
+  outline: none;
+}
+
+.special_class:active {
+  background-color: brown;
+}
+
+button {
+  border: 1px solid rgb(223, 138, 138);
+  padding: 0.6rem;
+  outline: none;
+  cursor: pointer;
+}
+
+button:active {
+  background: rgb(199, 192, 192);
 }
