@@ -1,10 +1,15 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { clearResult } from "./actions";
 
 const App = () => {
-  let result = 0;
-  const finalResult = useSelector((state) => state.result);
-  console.log(finalResult);
+  const result = useSelector((state) => state.result);
+  console.log(result);
+  const dispatch = useDispatch();
+
+  const clearResultHandler = (e) => {
+    dispatch(clearResult());
+  };
 
   return (
     <div className="Calculator">
@@ -29,6 +34,7 @@ const App = () => {
           <button>*</button>
           <button>/</button>
           <button className="special_class">=</button>
+          <button onClick={clearResultHandler}>Clear</button>
         </div>
       </div>
     </div>

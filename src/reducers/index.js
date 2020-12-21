@@ -1,4 +1,14 @@
 /* eslint-disable import/no-anonymous-default-export */
-export default (action, state) => {
-  return state;
-};
+export default function reducer(state, action) {
+  switch (action.type) {
+    case "CLEAR":
+      return {
+        ...state,
+        result: 0,
+        tempVariable: 0,
+        operation: "",
+      };
+    default:
+      return state;
+  }
+}
