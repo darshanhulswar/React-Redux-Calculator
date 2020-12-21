@@ -8,6 +8,13 @@ export default function reducer(state, action) {
         tempVariable: 0,
         operation: "",
       };
+
+    case "ADD":
+      return {
+        ...state,
+        result: action.make,
+      };
+
     default:
       return state;
   }
