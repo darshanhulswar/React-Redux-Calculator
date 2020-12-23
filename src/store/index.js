@@ -2,9 +2,10 @@ import { createStore } from "redux";
 import reducer from "../reducers";
 
 const initialState = {
+  value_1: 0,
+  value_2: 0,
+  operationType: "",
   result: 0,
-  tempVariable: 0,
-  operation: "",
 };
 
 export const store = createStore(

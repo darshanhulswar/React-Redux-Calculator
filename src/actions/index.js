@@ -1,36 +1,62 @@
-const clearResult = (state, action) => {
+const clearResult = () => {
   return {
-    type: "CLEAR",
+    type: "CLEAR_RESULT",
   };
 };
 
-const add = (state, action) => {
-  console.log("addd");
+const addition = () => {
   return {
-    type: "ADD",
-    make: "some",
+    type: "ADDITION",
   };
 };
 
-const sub = (state, action) => {
-  console.log("sub");
+const subtraction = () => {
   return {
-    type: "SUB",
+    type: "SUBTRACTION",
   };
 };
 
-const div = (state, action) => {
-  console.log("div");
+const division = () => {
   return {
-    type: "DIV",
+    type: "DIVISION",
   };
 };
 
-const mul = (state, action) => {
-  console.log("mul");
+const multiplication = () => {
   return {
-    type: "MUL",
+    type: "MULTIPLICATION",
   };
 };
 
-export { clearResult, add, sub, mul, div };
+const setFirstValue = (value) => {
+  console.log(value);
+  return {
+    type: "SET_FIRST_VALUE",
+    payload: value,
+  };
+};
+
+const setSecondValue = (value) => {
+  console.log(value);
+  return {
+    type: "SET_SECOND_VALUE",
+    payload: value,
+  };
+};
+
+const calculateResult = () => {
+  return {
+    type: "CALCULATE_RESULT",
+  };
+};
+
+export {
+  addition,
+  subtraction,
+  multiplication,
+  division,
+  clearResult,
+  setFirstValue,
+  setSecondValue,
+  calculateResult,
+};
