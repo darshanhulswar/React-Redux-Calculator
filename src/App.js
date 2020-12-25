@@ -21,9 +21,15 @@ const App = () => {
   }, [result]);
 
   return (
-    <div className="Calculator">
-      <h2>Calculator</h2>
+    <div
+      className="bg-gray-50 p-8 m-auto shadow-lg rounded-md mt-32"
+      style={{ width: "600px", height: "50vh" }}
+    >
+      <h2 className="font-bold text-gray-400 text-4xl pb-2 text-center">
+        Calculator
+      </h2>
       <input
+        className="p-4 text-red-800 font-bold outline-none w-full shadow-lg rounded-md select-none"
         ref={inputFieldRef}
         type="text"
         style={{ textAlign: "right" }}
@@ -31,8 +37,9 @@ const App = () => {
         value={inputValue !== "" ? inputValue : result}
       />
       <div className="keypad">
-        <div className="Numeric__input">
+        <div className="my-3">
           <button
+            className="p-3 bg-blue-100 rounded-md hover:bg-blue-400 text-xl font-bold focus:outline-none"
             onMouseDown={(e) =>
               setInputValue(`${inputValue}${e.target.innerText}`)
             }
@@ -40,6 +47,7 @@ const App = () => {
             1
           </button>
           <button
+            className="p-3 bg-blue-100 hover:bg-blue-400 rounded-md m-2 font-bold text-xl focus:outline-none"
             onMouseDown={(e) =>
               setInputValue(`${inputValue}${e.target.innerText}`)
             }
@@ -47,6 +55,7 @@ const App = () => {
             2
           </button>
           <button
+            className="p-3 bg-blue-100 hover:bg-blue-400 rounded-md m-2 font-bold text-xl focus:outline-none"
             onMouseDown={(e) =>
               setInputValue(`${inputValue}${e.target.innerText}`)
             }
@@ -54,6 +63,7 @@ const App = () => {
             3
           </button>
           <button
+            className="p-3 bg-blue-100 hover:bg-blue-400 rounded-md m-2 font-bold text-xl focus:outline-none"
             onMouseDown={(e) =>
               setInputValue(`${inputValue}${e.target.innerText}`)
             }
@@ -61,6 +71,7 @@ const App = () => {
             4
           </button>
           <button
+            className="p-3 bg-blue-100 hover:bg-blue-400 rounded-md m-2 font-bold text-xl focus:outline-none"
             onMouseDown={(e) =>
               setInputValue(`${inputValue}${e.target.innerText}`)
             }
@@ -68,6 +79,7 @@ const App = () => {
             5
           </button>
           <button
+            className="p-3 bg-blue-100 hover:bg-blue-400 rounded-md m-2 font-bold text-xl focus:outline-none"
             onMouseDown={(e) =>
               setInputValue(`${inputValue}${e.target.innerText}`)
             }
@@ -75,6 +87,7 @@ const App = () => {
             6
           </button>
           <button
+            className="p-3 bg-blue-100 hover:bg-blue-400 rounded-md m-2 font-bold text-xl focus:outline-none"
             onMouseDown={(e) =>
               setInputValue(`${inputValue}${e.target.innerText}`)
             }
@@ -82,6 +95,7 @@ const App = () => {
             7
           </button>
           <button
+            className="p-3 bg-blue-100 hover:bg-blue-400 rounded-md m-2 font-bold text-xl focus:outline-none"
             onMouseDown={(e) =>
               setInputValue(`${inputValue}${e.target.innerText}`)
             }
@@ -89,6 +103,7 @@ const App = () => {
             8
           </button>
           <button
+            className="p-3 bg-blue-100 hover:bg-blue-400 rounded-md m-2 font-bold text-xl focus:outline-none"
             onMouseDown={(e) =>
               setInputValue(`${inputValue}${e.target.innerText}`)
             }
@@ -96,6 +111,7 @@ const App = () => {
             9
           </button>
           <button
+            className="p-3 bg-blue-100 hover:bg-blue-400 rounded-md m-2 font-bold text-xl focus:outline-none"
             onMouseDown={(e) =>
               setInputValue(`${inputValue}${e.target.innerText}`)
             }
@@ -105,6 +121,7 @@ const App = () => {
         </div>
         <div className="Math__input">
           <button
+            className="p-3 bg-blue-100 hover:bg-blue-400 rounded-md m-2 font-bold text-xl focus:outline-none"
             onClick={() => {
               dispatch(setFirstValue(Number(inputValue)));
               dispatch(addition());
@@ -115,6 +132,7 @@ const App = () => {
             +
           </button>
           <button
+            className="p-3 bg-blue-100 hover:bg-blue-400 rounded-md m-2 font-bold text-xl focus:outline-none"
             onClick={() => {
               dispatch(setFirstValue(Number(inputValue)));
               dispatch(subtraction());
@@ -124,6 +142,7 @@ const App = () => {
             -
           </button>
           <button
+            className="p-3 bg-blue-100 hover:bg-blue-400 rounded-md m-2 font-bold text-xl focus:outline-none"
             onClick={() => {
               dispatch(setFirstValue(Number(inputValue)));
               dispatch(multiplication());
@@ -133,6 +152,7 @@ const App = () => {
             *
           </button>
           <button
+            className="p-3 bg-blue-100 hover:bg-blue-400 rounded-md m-2 font-bold text-xl focus:outline-none"
             onClick={() => {
               dispatch(setFirstValue(Number(inputValue)));
               dispatch(division());
@@ -142,7 +162,7 @@ const App = () => {
             /
           </button>
           <button
-            className="special_class"
+            className="px-8 py-3 bg-pink-400 rounded-md hover:bg-blue-400 text-xl font-bold focus:outline-none"
             onClick={() => {
               console.log("ok calculating..");
               dispatch(setSecondValue(Number(inputValue)));
@@ -152,6 +172,7 @@ const App = () => {
             =
           </button>
           <button
+            className="p-3 bg-blue-100 hover:bg-blue-400 rounded-md m-2 font-bold text-xl focus:outline-none"
             onClick={() => {
               dispatch(clearResult());
               setInputValue("");
