@@ -1,46 +1,43 @@
-const clearResult = () => {
+const square = (value) => {
   return {
-    type: "CLEAR_RESULT",
+    type: "SQUARE",
+    value: value,
   };
 };
 
-const addition = () => {
+const abs = (value) => {
   return {
-    type: "ADDITION",
+    type: "ABSOLUTE",
+    value: value,
   };
 };
 
-const subtraction = () => {
+const sin = (value) => {
   return {
-    type: "SUBTRACTION",
+    type: "SIN",
+    value: value,
   };
 };
 
-const division = () => {
+const cos = (value) => {
   return {
-    type: "DIVISION",
+    type: "COS",
+    value: value,
   };
 };
 
-const multiplication = () => {
+const tan = (value) => {
   return {
-    type: "MULTIPLICATION",
+    type: "TAN",
+    value: value,
   };
 };
 
-const setFirstValue = (value) => {
-  console.log(value);
+const setInputs = (value, operation) => {
   return {
-    type: "SET_FIRST_VALUE",
-    payload: value,
-  };
-};
-
-const setSecondValue = (value) => {
-  console.log(value);
-  return {
-    type: "SET_SECOND_VALUE",
-    payload: value,
+    type: "SET_INPUTS",
+    value: value,
+    operation: operation,
   };
 };
 
@@ -50,13 +47,10 @@ const calculateResult = () => {
   };
 };
 
-export {
-  addition,
-  subtraction,
-  multiplication,
-  division,
-  clearResult,
-  setFirstValue,
-  setSecondValue,
-  calculateResult,
+const clearResult = () => {
+  return {
+    type: "CLEAR_RESULT",
+  };
 };
+
+export { square, abs, sin, cos, tan, setInputs, calculateResult, clearResult };

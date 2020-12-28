@@ -2,20 +2,26 @@ import React, { useState, useRef, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   clearResult,
-  addition,
-  subtraction,
-  multiplication,
-  division,
-  setFirstValue,
   calculateResult,
-  setSecondValue,
+  square,
+  abs,
+  sin,
+  cos,
+  tan,
+  setInputs,
 } from "./actions";
 
 const App = () => {
   const [inputValue, setInputValue] = useState("");
-  const { result } = useSelector((state) => state);
+
+  const result = useSelector((state) => state.basicCalculationReducer.result);
+
   const dispatch = useDispatch();
+
   const inputFieldRef = useRef(null);
+
+  // const inputs = useSelector((state) => state.basicCalculationReducer.inputs);
+
   useEffect(() => {
     setInputValue(`${result}`);
   }, [result]);
@@ -123,9 +129,7 @@ const App = () => {
           <button
             className="p-3 bg-blue-100 hover:bg-blue-400 rounded-md m-2 font-bold text-xl focus:outline-none"
             onClick={() => {
-              dispatch(setFirstValue(Number(inputValue)));
-              dispatch(addition());
-              console.log("Input Cleared");
+              dispatch(setInputs(Number(inputValue), "+"));
               setInputValue("");
             }}
           >
@@ -134,8 +138,7 @@ const App = () => {
           <button
             className="p-3 bg-blue-100 hover:bg-blue-400 rounded-md m-2 font-bold text-xl focus:outline-none"
             onClick={() => {
-              dispatch(setFirstValue(Number(inputValue)));
-              dispatch(subtraction());
+              dispatch(setInputs(Number(inputValue), "-"));
               setInputValue("");
             }}
           >
@@ -144,8 +147,7 @@ const App = () => {
           <button
             className="p-3 bg-blue-100 hover:bg-blue-400 rounded-md m-2 font-bold text-xl focus:outline-none"
             onClick={() => {
-              dispatch(setFirstValue(Number(inputValue)));
-              dispatch(multiplication());
+              dispatch(setInputs(Number(inputValue), "*"));
               setInputValue("");
             }}
           >
@@ -154,8 +156,7 @@ const App = () => {
           <button
             className="p-3 bg-blue-100 hover:bg-blue-400 rounded-md m-2 font-bold text-xl focus:outline-none"
             onClick={() => {
-              dispatch(setFirstValue(Number(inputValue)));
-              dispatch(division());
+              dispatch(setInputs(Number(inputValue), "/"));
               setInputValue("");
             }}
           >
@@ -165,11 +166,44 @@ const App = () => {
             className="px-8 py-3 bg-pink-400 rounded-md hover:bg-blue-400 text-xl font-bold focus:outline-none"
             onClick={() => {
               console.log("ok calculating..");
-              dispatch(setSecondValue(Number(inputValue)));
+              dispatch(setInputs(Number(inputValue), "="));
+              setInputValue("");
               dispatch(calculateResult());
             }}
           >
             =
+          </button>
+
+          <button
+            onClick={() => dispatch(square(Number(inputValue)))}
+            className="p-3 bg-blue-100 rounded-md hover:bg-blue-400 m-2 text-xl font-bold focus:outline-none"
+          >
+            sqr()
+          </button>
+
+          <button
+            onClick={() => dispatch(abs(Number(inputValue)))}
+            className="p-3 bg-blue-100 rounded-md hover:bg-blue-400 m-2 text-xl font-bold focus:outline-none"
+          >
+            abs()
+          </button>
+          <button
+            onClick={() => dispatch(sin(Number(inputValue)))}
+            className="p-3 bg-blue-100 rounded-md hover:bg-blue-400 m-2 text-xl font-bold focus:outline-none"
+          >
+            sin()
+          </button>
+          <button
+            onClick={() => dispatch(cos(Number(inputValue)))}
+            className="p-3 bg-blue-100 rounded-md hover:bg-blue-400 m-2 text-xl font-bold focus:outline-none"
+          >
+            cos()
+          </button>
+          <button
+            onClick={() => dispatch(tan(Number(inputValue)))}
+            className="p-3 bg-blue-100 rounded-md hover:bg-blue-400 m-2 text-xl font-bold focus:outline-none"
+          >
+            tan()
           </button>
           <button
             className="p-3 bg-blue-100 hover:bg-blue-400 rounded-md m-2 font-bold text-xl focus:outline-none"
